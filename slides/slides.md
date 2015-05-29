@@ -34,7 +34,7 @@ Ejemplos
 ===============     =============
 Proyecto A          Output
 ---------------     -------------
-PHP 5.3             PHP 5.4  
+PHP 5.3             PHP 5.4
 MySQL 5             MongoDB 2.6
 Apache Solr 4.4     SQLServer
                     Apache Solr 4.8
