@@ -1,4 +1,8 @@
-# Vagrant for Developmnets
+# Vagrant for Developments
+
+This is a talk for the [Pymienta 2015](http://pimientadigital.com) conference.
+You can see the live presentation [here](http://luismayta.github.io/vagrant-for-developments).
+
 
 ## Install
 
@@ -15,6 +19,12 @@ pip install -r requeriments.txt
 ### Slides
 
 Es necesario instalar [landslide](https://github.com/adamzap/landslide) para poder generar los slides.
+
+```bash
+landslide main.cfg
+```
+
+Open index.html
 
 ### Documentation
 
