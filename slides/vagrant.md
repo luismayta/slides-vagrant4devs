@@ -5,8 +5,6 @@
 * Optimizacion
 * Tener las mismas dependencias que Produccion
 
-.notes: These are my notes, hidden by default
-
 --------------------------------------------------
 
 # Ejemplo
@@ -28,17 +26,18 @@
 
 # Proyecto Papita con Huevo
 
-====================
-3 meses del proyecto
---------------------
+## 3 meses del proyecto
 
-PHP 5.5
-Nginx
-Apache Solr 4.8
-Redis
-MongoDB 3.0
 
-=====================
+    !Python
+
+    | 3 meses del Proyecto |
+    | -------------------- |
+    | PHP 5.5              |
+    | Nginx                |
+    | Apache Solr 4.8      |
+    | Redis                |
+    | MongoDB 3.0          |
 
 --------------------------------------------------
 
@@ -54,7 +53,7 @@ MongoDB 3.0
 
 # Tiempo de Tarea
 
-*1 dia o mas*
+## 1 dia o mas
 
 --------------------------------------------------
 
@@ -73,29 +72,32 @@ MongoDB 3.0
 
 --------------------------------------------------
 
-# Vagrant
+# Que es?
 
 * Herramienta Open Source
 * Multiplataforma
 * Permite Virtualizar ambientes
-* Soporta Virtualbox ...
-* Configurable
+* Soporta Virtualbox VMWare
 
 --------------------------------------------------
 
-# Installacion
+# Instalacion
 
-    http://downloads.vagrantup.com/
+http://downloads.vagrantup.com/
 
-    Vagrant usa como dependencia un virtualizador de software (virtualbox)
+Vagrant usa como dependencia un virtualizador de software (virtualbox)
 
-    https://www.virtualbox.org/
+https://www.virtualbox.org/
 
 --------------------------------------------------
 
 # Como Comienzo:
 
 * Crear el VagrantFile (Describe los recursos, tipo de Maquina y Software que vamos a usar)
+
+## Ejemplo
+
+    !Bash
 
     mkdir test-vagrant
     cd test-vagrant
@@ -105,82 +107,76 @@ MongoDB 3.0
 
 # Box:
 
-    Es la imagen del sistema operativo que usaremos.
+Es la imagen del sistema operativo que usaremos.
 
-    podemos descargar de este enlace:
+##  descargar de este enlace:
 
-    .. code-block::
-        http://www.vagrantbox.es/
+    !Bash
 
-     como somos amantes de **debian** usaremos algo parecido ubuntu
+    http://www.vagrantbox.es/
 
-     .. code-block::
+## Ubuntu Box
 
-        http://files.vagrantup.com/precise32.box
+    !Bash
+
+    http://files.vagrantup.com/precise32.box
+
 
 --------------------------------------------------
 
 # Agregamos el Box:
 
-    .. code-block::
+    !Bash
 
-         vagrant box add nombre_del_box http://url_del_box.box
+    vagrant box add nombre_del_box http://url_del_box.box
 
-    .. code-block::
+## Vagrant box add:
 
-         vagrant box add precise32 http://files.vagrantup.com/precise32.box
+    !Bash
 
-    **comprobemos**
+    vagrant box add precise32 http://files.vagrantup.com/precise32.box
 
-    .. code-block::
+## Comprobemos:
 
-         vagrant box list
+    !Bash
+    vagrant box list
 
 --------------------------------------------------
 
 # Usemos el Box:
 
-    **cambiemos cosas en el Vagrantfile**
+## Vagrantfile:
 
-    busquemos:
-
-    .. code-block::
-
-        config.vm.box = "base"
-
-    y lo cambiamos por:
-
-    .. code-block::
-
-        config.vm.box = "precise32"
+    !Bash
+    config.vm.box = "base"
+    por
+    config.vm.box = "precise32"
 
 --------------------------------------------------
 
 # Levantemos el Ambiente:
 
-    **Ahora si preparados**
+    !Bash
 
-    .. code-block::
+    vagrant up
 
-        vagrant up
+    # ahora para instalar las dependencias es:
 
-    ahora para instalar las dependencias es:
-
-    .. code-block::
-
-        vagrant ssh
+    vagrant ssh
 
 --------------------------------------------------
 
 # Ejemplo Instalar Git:
 
-    .. code-block::
+    !Bash
 
-        vagrant ssh
-        sudo apt-get update
-        sudo apt-get install git
+    vagrant ssh
+    sudo apt-get update
+    sudo apt-get install git
 
-    Listo eso es Todo, Aplausos :P
+--------------------------------------------------
+
+# Listo eso es Todo, Aplausos :P
 
 --------------------------------------------------
 
@@ -194,7 +190,6 @@ MongoDB 3.0
 * La instalacion pesa mucho, no lo puedo tener en un repo.
 * para que hacer todo esto si puedo usar simplemente VirtualBox.
 * Donde esta la Automatizacion? ...
-* Que estafador ... (El Gringo de Go ...)
 
 --------------------------------------------------
 
@@ -203,6 +198,8 @@ MongoDB 3.0
 --------------------------------------------------
 
 # Comandos de Vagrant:
+
+    !Bash
 
     vagrant up
     vagrant init
@@ -220,42 +217,52 @@ MongoDB 3.0
 
 # Configuracion Network:
 
-         guest_config.vm.network :private_network, ip: "192.168.33.10"
-         guest_config.vm.network "public_network"
+    !Puppet
+
+    guest_config.vm.network :private_network, ip: "192.168.33.10"
+    guest_config.vm.network "public_network"
 
 --------------------------------------------------
 
 # Enrutamiento de Puertos:
 
-         guest_config.vm.network :forwarded_port, guest: 80, host: 8888, auto_correct: true
-         guest_config.vm.network :forwarded_port, guest: 3306, host: 8889, auto_correct: true
-         guest_config.vm.network :forwarded_port, guest: 5432, host: 5433, auto_correct: true
+    !Puppet
+
+    guest_config.vm.network :forwarded_port, guest: 80, host: 8888, auto_correct: true
+    guest_config.vm.network :forwarded_port, guest: 3306, host: 8889, auto_correct: true
+    guest_config.vm.network :forwarded_port, guest: 5432, host: 5433, auto_correct: true
 
 --------------------------------------------------
 
 # Configuracion de PC:
 
-         guest_config.vm.hostname = "guest"
-         guest_config.vm.provider :virtualbox do |v|
-             v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-             v.customize ["modifyvm", :id, "--memory", "1024"]
-         end
+    !Puppet
+
+    guest_config.vm.hostname = "guest"
+    guest_config.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--memory", "1024"]
+    end
 
 --------------------------------------------------
 
 # Sincronizacion de Carpetas con NFS:
 
-        guest_config.vm.synced_folder "./", "/var/www", {:mount_options => ['dmode=777','fmode=777']}
+    !Puppet
+
+    guest_config.vm.synced_folder "./", "/var/www", {:mount_options => ['dmode=777','fmode=777']}
 
 --------------------------------------------------
 
 # Exportar Box:
 
-       vagrant up
-       (setup)
-       vagrant halt
-       vagrant package
-       mv package.box ~/boxes/my_box.box
+    !Puppet
+
+    vagrant up
+    (setup)
+    vagrant halt
+    vagrant package
+    mv package.box ~/boxes/my_box.box
 
 --------------------------------------------------
 
@@ -276,6 +283,8 @@ MongoDB 3.0
 --------------------------------------------------
 
 # Puppet:
+
+    !Puppet
 
     guest_config.vm.provision :puppet do |puppet|
         puppet.manifests_path = "provision/puppet/manifests"
