@@ -1,8 +1,8 @@
-#Luis Mayta
+# Luis Mayta
 
-- Software Developer
-- Go enthusiast
-- Python enthusiast
+* Software Developer
+* Go enthusiast
+* Python enthusiast
 
 ## Contactos:
 
