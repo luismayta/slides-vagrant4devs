@@ -1,46 +1,3 @@
-# Porque lo necesito.
-
-* Probar server
-* Ambientes de Desarrollo Repicables
-* Optimizacion
-* Tener las mismas dependencias que Produccion
-
---------------------------------------------------
-
-# Ejemplo
-
---------------------------------------------------
-
-# Proyecto Papita con Huevo
-
-    !Python
-
-    | Inicio del Proyecto |
-    | ------------------- |
-    | PHP 5.3             |
-    | Apache 2            |
-    | MySQL 5             |
-    | Apache Solr 4.4     |
-
---------------------------------------------------
-
-# Proyecto Papita con Huevo
-
-## 3 meses del proyecto
-
-
-    !Python
-
-    | 3 meses del Proyecto |
-    | -------------------- |
-    | PHP 5.5              |
-    | Nginx                |
-    | Apache Solr 4.8      |
-    | Redis                |
-    | MongoDB 3.0          |
-
---------------------------------------------------
-
 # Casos de la vida Real
 
 *RRHH:* Hoy Empieza el nuevo desarrollador
@@ -64,11 +21,38 @@
 
 --------------------------------------------------
 
+# Proyecto Papita con Huevo
+
+## Inicio del Proyecto
+
+* PHP 5.3
+* Apache
+* MySQL 5
+* Apache Solr
+
+--------------------------------------------------
+
+# Proyecto Papita con Huevo
+
+## 3 meses del proyecto
+
+
+* PHP 5.5
+* Nginx
+* Apache Solr 4.8
+* Redis
+* MongoDB 3.0
+
+--------------------------------------------------
+
 # que Hacemos?
 
 --------------------------------------------------
 
 # Vagrant
+
+![Landscape](../_assets/vagrant_chilling.png)
+
 
 --------------------------------------------------
 
@@ -78,6 +62,15 @@
 * Multiplataforma
 * Permite Virtualizar ambientes
 * Soporta Virtualbox VMWare
+
+--------------------------------------------------
+
+# Porque lo necesito.
+
+* Probar server
+* Ambientes de Desarrollo Repicables
+* Optimizacion
+* Tener las mismas dependencias que Produccion
 
 --------------------------------------------------
 
@@ -177,10 +170,6 @@ Es la imagen del sistema operativo que usaremos.
 --------------------------------------------------
 
 # Listo eso es Todo, Aplausos :P
-
---------------------------------------------------
-
-# Gracias:
 
 --------------------------------------------------
 
@@ -291,6 +280,12 @@ Es la imagen del sistema operativo que usaremos.
         puppet.manifest_file  = "init.pp"
         puppet.module_path = "provision/puppet/modules"
     end
+
+--------------------------------------------------
+
+# Flujo Vagrant:
+
+![Landscape](../_assets/flow_vagrant.png)
 
 --------------------------------------------------
 
