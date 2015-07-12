@@ -40,3 +40,5 @@ ir a un navegador y colocar:
 ```bash
 http://localhost:5000
 ```
+
+[![Analytics](https://ga-beacon.appspot.com/UA-65019326-1/vagrant-for-developments/readme)](https://github.com/luismayta/vagrant-for-developments)
