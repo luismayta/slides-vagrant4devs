@@ -42,3 +42,4 @@ http://localhost:5000
 ```
 
 [![Analytics](https://ga-beacon.appspot.com/UA-65019326-1/vagrant-for-developments/readme)](https://github.com/luismayta/vagrant-for-developments)
+[![](http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png)](http://pe.linkedin.com/in/luismayta)
